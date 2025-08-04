@@ -8,6 +8,8 @@ import dash_bootstrap_components as dbc
 from diskcache import Cache
 import redis
 import os
+import sys
+sys.path.insert(0, "./.python_packages/lib/python3.10/site-packages")
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -304,3 +306,4 @@ def update_dashboard(n, alert_n):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+
