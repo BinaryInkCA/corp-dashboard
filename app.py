@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, "./.python_packages/lib/python3.10/site-packages")
+
 import dash
 from dash import dcc, html, Input, Output
 import pandas as pd
@@ -8,9 +11,9 @@ import dash_bootstrap_components as dbc
 from diskcache import Cache
 import redis
 import os
-import sys
-sys.path.insert(0, "./.python_packages/lib/python3.10/site-packages")
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# Rest of your app.py code (e.g., app = dash.Dash(__name__), layout, callbacks) goes here
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
@@ -306,4 +309,5 @@ def update_dashboard(n, alert_n):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+
 
