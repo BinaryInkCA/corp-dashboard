@@ -1,0 +1,9 @@
+dash==2.17.1
+pandas==2.2.2
+requests==2.32.3
+plotly==5.22.0
+dash-bootstrap-components==1.6.0
+gunicorn==22.0.0
+pyodbc==5.1.0
+diskcache==5.6.3
+redis==5.0.8
