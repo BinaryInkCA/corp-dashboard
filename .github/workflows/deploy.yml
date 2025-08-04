@@ -11,7 +11,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+    build:
+    name: Check workflow start
+    run: echo "Workflow started, checking environment"
     runs-on: ubuntu-latest
     permissions:
       contents: read
