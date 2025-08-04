@@ -52,8 +52,8 @@
           - name: Login to Azure
             uses: azure/login@v2
             with:
-              client-id: ${{ secrets.AZURE_CLIENT_ID }}
-              tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+              client-id: ${{ 9216dec1-4a01-4bb1-895d-0a0b5094104c }}
+              tenant-id: ${{ 199557fa-7c55-4872-9a05-c913067cd8e4 }}
               subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
           - name: 'Deploy to Azure Web App'
