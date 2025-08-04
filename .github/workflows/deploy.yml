@@ -11,14 +11,15 @@ on:
   workflow_dispatch:
 
 jobs:
-    build:
-    name: Check workflow start
-    run: echo "Workflow started, checking environment"
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
 
     steps:
+      - name: Check workflow start
+        run: echo "Workflow started, checking environment"
+
       - uses: actions/checkout@v4
 
       - name: Set up Python version
