@@ -35,6 +35,8 @@ API_SITENAME = os.getenv('API_SITENAME', "fivestar")
 API_USERID = os.getenv('API_USERID', "jeff.thompson")
 SQL_SERVER = os.getenv('SQL_SERVER', "SQL-03")
 SQL_DATABASE = os.getenv('SQL_DATABASE', "TECHSYS")
+SQL_USERNAME = os.getenv('SQL_USERNAME')
+SQL_PASSWORD = os.getenv('SQL_PASSWORD')
 
 def get_location_codes():
     try:
@@ -283,4 +285,5 @@ def update_dashboard(n, alert_n):
 
 if __name__ == '__main__':
     app.run_server(debug=False)
+
 
