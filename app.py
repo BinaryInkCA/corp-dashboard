@@ -44,6 +44,7 @@ def get_location_codes():
             f"SERVER={SQL_SERVER};"
             f"DATABASE={SQL_DATABASE};"
             f"Trusted_Connection=yes;"
+            "Connect Timeout=60;"
         )
         conn = pyodbc.connect(conn_str)
         query = "SELECT LOCATION_NAME, LOCATION_CODE FROM T_LOCATION WHERE LOCATION_ACTIVE = 'Y'"
@@ -55,10 +56,10 @@ def get_location_codes():
                       'Five Guys USA' if x.startswith(('FG - OR', 'FG - WA')) else
                       'Five Guys Canada'
         )
-        logger.info(f"Retrieved {len(df_locations)} locations from SQL")
+        print(f"Retrieved {len(df_locations)} locations from SQL")
         return df_locations[['LOCATION_CODE', 'LOCATION_NAME', 'brand']]
     except Exception as e:
-        logger.error(f"Error fetching location codes: {e}")
+        print(f"Error fetching location codes: {e}")
         return pd.DataFrame(columns=['LOCATION_CODE', 'LOCATION_NAME', 'brand'])
 
 # Function to fetch API data for a single location
