@@ -36,21 +36,21 @@ API_USERID = os.getenv('API_USERID', "jeff.thompson")
 SQL_SERVER = os.getenv('SQL_SERVER', "SQL-03")
 SQL_DATABASE = os.getenv('SQL_DATABASE', "TECHSYS")
 
-# Function to fetch location codes from SQL Server
 def get_location_codes():
     try:
         conn_str = (
             f"DRIVER={{ODBC Driver 17 for SQL Server}};"
             f"SERVER={SQL_SERVER};"
             f"DATABASE={SQL_DATABASE};"
-            f"Trusted_Connection=yes;"
-            "Connect Timeout=60;"
+            f"UID={SQL_USERNAME};"  
+            f"PWD={SQL_PASSWORD};" 
+            "Connect Timeout=60;"  
         )
         conn = pyodbc.connect(conn_str)
         query = "SELECT LOCATION_NAME, LOCATION_CODE FROM T_LOCATION WHERE LOCATION_ACTIVE = 'Y'"
         df_locations = pd.read_sql(query, conn)
         conn.close()
-       
+      
         df_locations['brand'] = df_locations['LOCATION_NAME'].apply(
             lambda x: 'Blaze Pizza' if x.startswith('BZ') else
                       'Five Guys USA' if x.startswith(('FG - OR', 'FG - WA')) else
@@ -283,3 +283,4 @@ def update_dashboard(n, alert_n):
 
 if __name__ == '__main__':
     app.run_server(debug=False)
+
